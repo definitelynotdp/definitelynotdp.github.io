@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Default Styles */
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.w-full.h-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root
+{
+  font-family: lora, serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background: linear-gradient(135deg, #f8f1e4, #e8dcc6);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a
+{
+  font-weight: 500;
+  color: #a67c52; /* Gold accent */
+  text-decoration: inherit;
+  transition: color 0.3s ease;
+}
+a:hover
+{
+  color: #8c2d2a; /* Burgundy accent */
+}
+
+body
+{
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f1e4, #e8dcc6);
+}
+
+h1, h2, h3
+{
+  font-family: cinzel, serif;
+  font-size: 3.2em;
+  line-height: 1.1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons styled with a dark, ornate gradient */
+button
+{
+  font-family: cinzel, serif;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  background: linear-gradient(135deg, #3b2e2a, #2e2523);
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.3s ease;
+}
+button:hover
+{
+  border-color: #a67c52;
+}
+button:focus,
+button:focus-visible
+{
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Section divider for ornate separation */
+.section-divider
+{
+  border-top: 2px solid #a67c52;
+  margin: 2rem 0;
+}
+
+/* Responsive adjustments for light mode */
+@media (prefers-color-scheme: light)
+{
+  :root
+  {
+    color: #213547;
+    background: linear-gradient(135deg, #f8f1e4, #e8dcc6);
+  }
+  a:hover
+  {
+    color: #c6aa71;
+  }
+  button
+  {
+    background-color: #f9f9f9;
+  }
+  a, button
+  {
+    transition: all 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .max-container {
+    @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
+    background: linear-gradient(135deg, #f8f1e4, #e8dcc6);
+  }
+
+  .head-text {
+    @apply sm:text-5xl text-3xl font-bold sm:leading-snug font-cinzel tracking-wider text-amber-900 drop-shadow-md;
+  }
+
+  .subhead-text {
+    @apply font-bold sm:text-3xl text-xl font-cinzel text-amber-800 drop-shadow-md tracking-wide uppercase;
+  }
+
+  .blue-gradient_text {
+    @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
+  }
+
+  .old-scroll_text {
+    @apply bg-gradient-to-r from-[#d4af37] to-[#8b0000] bg-clip-text text-transparent;
+  }
+
+  .input {
+    @apply bg-amber-50 border border-amber-200 text-gray-800 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 mt-2.5 font-normal shadow-card;
+  }
+
+  .textarea {
+    @apply block p-2.5 w-full text-sm text-gray-800 bg-amber-50 rounded-lg border border-amber-200 focus:ring-amber-500 focus:border-amber-500 mt-2.5 font-normal shadow-card;
+  }
+
+  .btn {
+    @apply text-white bg-gradient-to-r from-[#8b0000] to-[#d4af37] focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
+  }
+
+  .header {
+    @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-10 right-0 left-0;
+  }
+
+  .footer {
+    @apply max-w-5xl mx-auto sm:px-16 pb-6 px-8 flex flex-col gap-7;
+  }
+  .footer-container {
+    @apply flex flex-wrap gap-7 items-center justify-between;
+  }
+  .info-box {
+    @apply mx-5 relative flex text-white flex-col gap-3 max-w-2xl bg-amber-800 pt-4 pb-12 px-8;
+  }
+  .neo-btn {
+    @apply py-3 px-6 rounded-lg text-amber-900 text-center font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
+  }
+  .cta {
+    @apply w-full flex items-center md:flex-row flex-col sm:mt-16 mt-8 gap-7;
+  }
+  .cta-text {
+    @apply text-amber-900 font-extrabold flex-1 text-3xl max-md:text-center;
+  }
+}
+
+/* Glassmorphism*/
+.glassmorphism {
+  background: rgba(245, 222, 179, 0.07); /* Aged parchment tint */
+  backdrop-filter: blur(6px); /* Softer blur */
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 12px;
+  border: 1px solid rgba(139, 69, 19, 0.3); /* Brownish-gold border */
+}
+
+/* Logo (Adjusted to Look Like a Royal Crest or Arcane Symbol) */
+.logo {
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d4af37, #8b0000); /* Gold to deep red */
+  box-shadow: 0px 10px 35px -4px rgba(218, 165, 32, 0.2),
+  0px 1.5px 4px -1px rgba(139, 69, 19, 0.3);
+}
+
+/* Block Container (Feels More Like a Magic Inscription Slab) */
+.block-container {
+  position: relative;
+  transition: 250ms;
+  perspective: 500px;
+}
+
+/* Button Backgrounds */
+.block-container .btn-back {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: inherit;
+  height: inherit;
+  transition: 250ms;
+  transform-style: preserve-3d;
+  transform-origin: bottom right;
+  transform: rotateZ(8deg); /* Softer angle */
+  will-change: transform;
+  box-shadow: 12px 0 30px rgba(139, 69, 19, 0.5); /* Brownish-gold shadow */
+}
+
+.block-container .btn-back-red {
+  background: linear-gradient(135deg, #7a1c1c -20%, #d66363 120%);
+}
+
+.block-container .btn-back-green {
+  background: linear-gradient(135deg, #3a5f31 -20%, #96b88c 120%);
+}
+
+.block-container .btn-back-yellow {
+  background: linear-gradient(135deg, #b8860b -20%, #f0c674 120%);
+}
+
+.block-container .btn-back-blue {
+  background: linear-gradient(135deg, #0b3d91 -20%, #5a7fbf 120%);
+}
+
+.block-container .btn-back-orange {
+  background: linear-gradient(135deg, #8a360f -20%, #d48756 120%);
+}
+
+.block-container .btn-back-pink {
+  background: linear-gradient(135deg, #6b1e44 -20%, #b57090 120%);
+}
+
+.block-container .btn-back-black {
+  background: linear-gradient(135deg, #1e1e1e -20%, #5c5c5c 120%);
+}
+
+.block-container .btn-front {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+  background-color: #ffffff33;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  transition: 250ms;
+  transform-style: preserve-3d;
+  transform-origin: top left;
+  overflow: hidden;
+}
+
+.block-container:hover > .btn-back {
+  transform: translateZ(20px) rotateZ(15deg) rotateX(-20deg) rotateY(-20deg);
+}
+
+.block-container:hover > .btn-front {
+  transform: translateZ(80px) translateY(-5px) rotateX(15deg) rotateY(15deg);
+}
+
+/* Neo Brutalism */
+.neo-brutalism-blue {
+  background: #1e3a8a; /* Deep Royal Blue */
+  position: relative;
+  border-radius: 10px;
+  border: #1e3a8a;
+  box-shadow: 0.6vmin 0.6vmin #142857, 1vmin 1vmin #0f2a60, 1vmin 1vmin #0f2a60, 0.65vmin 1vmin #0f2a60, 1vmin 0.65vmin #0f2a60;
+}
+
+.neo-brutalism-white {
+  background: #f5f5dc; /* Aged Parchment Color */
+  border: #f5f5dc;
+  box-shadow: 0.6vmin 0.6vmin #c1a162, 1vmin 1vmin #8b6f47, 1vmin 1vmin #8b6f47, 0.65vmin 1vmin #8b6f47, 1vmin 0.65vmin #8b6f47;
+}
