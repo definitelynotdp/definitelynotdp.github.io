@@ -5,23 +5,25 @@ import { arrow } from "../assets/icons";
 const HomeInfo = ({ currentStage }) => {
     if (currentStage === 1) {
         return (
-            <h1 className='sm:text-xl sm:leading-snug text-center parchment-bg py-4 px-8 text-amber-900 mx-5'>
-                Hail, traveler! I am
-                <span className='font-semibold mx-2 text-amber-900'>Debasish</span> ⚔️
-                <br/>
-                A game-smith from the lands of India
-            </h1>
+            <div className="border-4 border-[#4B006E] rounded-xl bg-black-500/70 p-6 shadow-lg mx-5">
+                <h1 className="sm:text-xl sm:leading-snug text-center parchment-bg py-4 px-8 text-[#B2F7EF]">
+                    Hail, traveler! I am
+                    <span className="font-semibold mx-2 text-[#DCCCFF]">Debasish</span> ⚔️
+                    <br />
+                    A game-smith from the lands of India
+                </h1>
+            </div>
         );
     }
     if (currentStage === 2) {
         return (
-            <div className='scroll-box'>
-                <p className='font-medium sm:text-xl text-center'>
+            <div className="border-4 border-[#4B006E] rounded-xl bg-black-500/70 p-6 shadow-lg mx-5">
+                <p className='sm:text-xl sm:leading-snug text-center parchment-bg py-4 px-8 text-[#B2F7EF]'>
                     Through many guilds have I toiled, <br/> honing my craft and gathering wisdom.
                 </p>
-                <Link to='/about' className='golden-scroll neo-btn'>
+                <Link to='/about' className='glassmorphism neo-btn'>
                     Unravel the tale
-                    <img src={arrow} alt='arrow' className='w-4 h-4 object-contain'/>
+                    <img src={arrow} alt='arrow' className='invert w-4 h-4 object-contain'/>
                 </Link>
             </div>
         );
@@ -29,13 +31,13 @@ const HomeInfo = ({ currentStage }) => {
 
     if (currentStage === 3) {
         return (
-            <div className='info-box'>
-                <p className='font-medium text-center sm:text-xl'>
+            <div className="border-4 border-[#4B006E] rounded-xl bg-black-500/70 p-6 shadow-lg mx-5">
+                <p className='sm:text-xl sm:leading-snug text-center parchment-bg py-4 px-8 text-[#B2F7EF]'>
                     Many ventures have I steered to triumph. <br />
                     Witness my Legacy.
                 </p>
 
-                <Link to='/projects' className='neo-brutalism-white neo-btn'>
+                <Link to='/projects'className='glassmorphism neo-btn'>
                     Behold my Labors
                     <img src={arrow} alt='arrow' className='w-4 h-4 object-contain' />
                 </Link>
@@ -45,13 +47,13 @@ const HomeInfo = ({ currentStage }) => {
 
     if (currentStage === 4) {
         return (
-            <div className='info-box'>
-                <p className='font-medium sm:text-xl text-center'>
+            <div className="border-4 border-[#4B006E] rounded-xl bg-black-500/70 p-6 shadow-lg mx-5">
+                <p className='sm:text-xl sm:leading-snug text-center parchment-bg py-4 px-8 text-[#B2F7EF]'>
                     In need of a skilled craftsman for thy grand endeavor? <br />
                     A mere parchment away, I await thy summons.
                 </p>
 
-                <Link to='/contact' className='ancient-scroll neo-btn'>
+                <Link to='/contact' className='glassmorphism neo-btn'>
                     Send thy raven
                     <img src={arrow} alt='arrow' className='w-4 h-4 object-contain' />
                 </Link>

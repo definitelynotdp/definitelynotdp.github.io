@@ -13,8 +13,14 @@
 
 .w-full.h-screen {
   display: flex;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
+}
+
+.container {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 :root
@@ -25,7 +31,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(135deg, #f8f1e4, #e8dcc6);
+  background: linear-gradient(135deg, #4B006E, #DCCCFF);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -35,13 +41,13 @@
 a
 {
   font-weight: 500;
-  color: #a67c52; /* Gold accent */
+  color: #4B006E;
   text-decoration: inherit;
   transition: color 0.3s ease;
 }
 a:hover
 {
-  color: #8c2d2a; /* Burgundy accent */
+  color: #F6F2FF;
 }
 
 body
@@ -51,7 +57,7 @@ body
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8f1e4, #e8dcc6);
+  background: linear-gradient(135deg, #4B006E, #DCCCFF);
 }
 
 h1, h2, h3
@@ -71,14 +77,14 @@ button
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  background: linear-gradient(135deg, #3b2e2a, #2e2523);
-  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #E07BE0, #B2F7EF);
+  box-shadow: inset 0 -2px 4px #4B006E;
   cursor: pointer;
   transition: border-color 0.25s, background-color 0.3s ease;
 }
 button:hover
 {
-  border-color: #a67c52;
+  border-color: #F6F2FF;
 }
 button:focus,
 button:focus-visible
@@ -89,7 +95,7 @@ button:focus-visible
 /* Section divider for ornate separation */
 .section-divider
 {
-  border-top: 2px solid #a67c52;
+  border-top: 2px solid #E07BE0;
   margin: 2rem 0;
 }
 
@@ -99,15 +105,15 @@ button:focus-visible
   :root
   {
     color: #213547;
-    background: linear-gradient(135deg, #f8f1e4, #e8dcc6);
+    background: linear-gradient(135deg, #4B006E, #DCCCFF);
   }
   a:hover
   {
-    color: #c6aa71;
+    color: #DCCCFF;
   }
   button
   {
-    background-color: #f9f9f9;
+    background-color: #B2F7EF;
   }
   a, button
   {
@@ -118,11 +124,11 @@ button:focus-visible
 @layer utilities {
   .max-container {
     @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
-    background: linear-gradient(135deg, #f8f1e4, #e8dcc6);
+    background: linear-gradient(135deg, #4B006E, #DCCCFF);
   }
 
   .head-text {
-    @apply sm:text-5xl text-3xl font-bold sm:leading-snug font-cinzel tracking-wider text-amber-900 drop-shadow-md;
+    @apply sm:text-5xl text-3xl font-bold sm:leading-snug font-cinzel tracking-wider text-violet-100 drop-shadow-md;
   }
 
   .subhead-text {
@@ -134,7 +140,7 @@ button:focus-visible
   }
 
   .old-scroll_text {
-    @apply bg-gradient-to-r from-[#d4af37] to-[#8b0000] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#DCCCFF] to-[#4B006E] bg-clip-text text-transparent;
   }
 
   .input {
@@ -150,7 +156,7 @@ button:focus-visible
   }
 
   .header {
-    @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-10 right-0 left-0;
+    @apply flex-grow justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-10 right-0 left-0;
   }
 
   .footer {
@@ -160,34 +166,34 @@ button:focus-visible
     @apply flex flex-wrap gap-7 items-center justify-between;
   }
   .info-box {
-    @apply mx-5 relative flex text-white flex-col gap-3 max-w-2xl bg-amber-800 pt-4 pb-12 px-8;
+    @apply mx-5 relative flex text-white flex-col gap-3 max-w-2xl bg-[#E07BE0] pt-4 pb-12 px-8;
   }
   .neo-btn {
-    @apply py-3 px-6 rounded-lg text-amber-900 text-center font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
+    @apply py-3 px-6 rounded-lg text-[#DCCCFF] text-center font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
   }
   .cta {
     @apply w-full flex items-center md:flex-row flex-col sm:mt-16 mt-8 gap-7;
   }
   .cta-text {
-    @apply text-amber-900 font-extrabold flex-1 text-3xl max-md:text-center;
+    @apply text-[#DCCCFF] font-extrabold flex-1 text-3xl max-md:text-center;
   }
 }
 
 /* Glassmorphism*/
 .glassmorphism {
-  background: rgba(245, 222, 179, 0.07); /* Aged parchment tint */
-  backdrop-filter: blur(6px); /* Softer blur */
+  background: #4B006E;
+  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 12px;
-  border: 1px solid rgba(139, 69, 19, 0.3); /* Brownish-gold border */
+  border: 1px solid #B2F7EF;
 }
 
 /* Logo (Adjusted to Look Like a Royal Crest or Arcane Symbol) */
 .logo {
   border-radius: 12px;
-  background: linear-gradient(135deg, #d4af37, #8b0000); /* Gold to deep red */
-  box-shadow: 0px 10px 35px -4px rgba(218, 165, 32, 0.2),
-  0px 1.5px 4px -1px rgba(139, 69, 19, 0.3);
+  background: linear-gradient(135deg, #E07BE0, #F6F2FF);
+  box-shadow: 0px 10px 35px -4px #4B006E,
+  0px 1.5px 4px -1px #4B006E;
 }
 
 /* Block Container (Feels More Like a Magic Inscription Slab) */
@@ -209,11 +215,11 @@ button:focus-visible
   transform-origin: bottom right;
   transform: rotateZ(8deg); /* Softer angle */
   will-change: transform;
-  box-shadow: 12px 0 30px rgba(139, 69, 19, 0.5); /* Brownish-gold shadow */
+  box-shadow: 12px 0 30px #E07BE0;
 }
 
 .block-container .btn-back-red {
-  background: linear-gradient(135deg, #7a1c1c -20%, #d66363 120%);
+  background: linear-gradient(135deg, #E07BE0 -20%, #F6F2FF 120%);
 }
 
 .block-container .btn-back-green {
@@ -265,7 +271,7 @@ button:focus-visible
 
 /* Neo Brutalism */
 .neo-brutalism-blue {
-  background: #1e3a8a; /* Deep Royal Blue */
+  background: #1e3a8a;
   position: relative;
   border-radius: 10px;
   border: #1e3a8a;
@@ -273,7 +279,7 @@ button:focus-visible
 }
 
 .neo-brutalism-white {
-  background: #f5f5dc; /* Aged Parchment Color */
+  background: #f5f5dc;
   border: #f5f5dc;
-  box-shadow: 0.6vmin 0.6vmin #c1a162, 1vmin 1vmin #8b6f47, 1vmin 1vmin #8b6f47, 0.65vmin 1vmin #8b6f47, 1vmin 0.65vmin #8b6f47;
+  box-shadow: 0.6vmin 0.6vmin #4B006E, 1vmin 1vmin #E07BE0, 1vmin 1vmin #DCCCFF, 0.65vmin 1vmin #F6F2FF, 1vmin 0.65vmin #B2F7EF;
 }

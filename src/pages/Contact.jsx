@@ -82,12 +82,12 @@ const Contact = () => {
               onSubmit={handleSubmit}
               className='w-full flex flex-col gap-7 mt-14'
           >
-              <label className='text-gray-900 font-bold'>
+              <label className='text-[#4B006E] font-bold'>
                   Thy Name
                   <input
                       type='text'
                       name='name'
-                      className='input border border-yellow-700 bg-yellow-100 text-gray-900 p-2 rounded-md'
+                      className='input border border-[#FF4D80] bg-[#DCCCFF] text-[#4B006E] p-2 rounded-md'
                       placeholder='Sir John of Code'
                       required
                       value={form.name}
@@ -97,12 +97,12 @@ const Contact = () => {
                   />
               </label>
 
-              <label className='text-gray-900 font-bold'>
+              <label className='text-[#4B006E] font-bold'>
                   Scroll of Summoning (Email)
                   <input
                       type='email'
                       name='email'
-                      className='input border border-yellow-700 bg-yellow-100 text-gray-900 p-2 rounded-md'
+                      className='input border border-[#FF4D80] bg-[#DCCCFF] text-[#4B006E] p-2 rounded-md'
                       placeholder='john@royalcourier.com'
                       required
                       value={form.email}
@@ -117,7 +117,7 @@ const Contact = () => {
                   <textarea
                       name='message'
                       rows='4'
-                      className='textarea border border-yellow-700 bg-yellow-100 text-gray-900 p-2 rounded-md'
+                      className='input border border-[#FF4D80] bg-[#DCCCFF] text-[#4B006E] p-2 rounded-md'
                       placeholder='Write thy decree...'
                       value={form.message}
                       onChange={handleChange}
@@ -129,7 +129,7 @@ const Contact = () => {
               <button
                   type='submit'
                   disabled={loading}
-                  className='btn bg-yellow-700 text-white font-bold py-2 px-4 rounded-md hover:bg-yellow-800'
+                  className='btn bg-[#DF367C] text-[#DCCCFF] font-bold py-2 px-4 rounded-md hover:bg-[#4B006E]'
                   onFocus={handleFocus}
                   onBlur={handleBlur}
               >

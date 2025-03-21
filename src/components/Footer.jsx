@@ -4,10 +4,10 @@ import { socialLinks } from "../constants";
 
 const Footer = () => {
   return (
-      <footer className='footer font-poppins'>
-          <hr className='border-amber-900 border-t-2' />
+      <footer className='footer font-lora'>
+          <hr className='border-[#4B006E] border-t-2' />
           <div className='footer-container py-4'>
-              <p className="text-center text-amber-900 text-sm italic">
+              <p className="text-center text-[#B2F7EF] text-sm italic">
                   "May our paths cross again, wanderer."
               </p>
               <div className='flex gap-3 justify-center items-center mt-3'>

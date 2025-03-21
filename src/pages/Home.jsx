@@ -26,18 +26,15 @@ const Home = () => {
   }, [isPlayingMusic]);
 
   const adjustBiDragonForScreenSize = () => {
-    let screenScale, screenPosition;
+    let screenScale;
 
-    // If screen width is less than 768px, adjust the scale and position
+    // If screen width is less than 768px, adjust the scale
     if (window.innerWidth < 768) {
-      screenScale = [1.5, 1.5, 1.5];
-      screenPosition = [0, -1.5, 0];
+      screenScale = [0.015, 0.015, 0.015];
     } else {
-      screenScale = [3, 3, 3];
-      screenPosition = [0, -4, -4];
+      screenScale = [0.023, 0.023, 0.023];
     }
-
-    return [screenScale, screenPosition];
+    return [screenScale];
   };
 
   const adjustIslandForScreenSize = () => {
@@ -54,17 +51,16 @@ const Home = () => {
     return [screenScale, screenPosition];
   };
 
-  const [biDragonScale, biDragonPosition] = adjustBiDragonForScreenSize();
+  const [biDragonScale] = adjustBiDragonForScreenSize();
   const [islandScale, islandPosition] = adjustIslandForScreenSize();
 
   return (
-    <section className='w-full h-screen relative'>
-      <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
-        {currentStage && <HomeInfo currentStage={currentStage} />}
+      <section className="w-screen h-screen overflow-hidden relative">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center">
+      {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
-
       <Canvas
-        className={`w-full h-screen bg-transparent ${
+        className={`w-full h-full overflow-hidden bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
         }`}
         camera={{ position: [0, 5, 50], fov: 50, near: 0.1, far: 1000 }}
@@ -80,11 +76,10 @@ const Home = () => {
             intensity={2}
           />
           <hemisphereLight
-            skyColor='#3b4d61'
+            skyColor='#E07BE0'
             groundColor='#000000'
             intensity={1}
           />
-
           <Bird />
           <Sky isRotating={isRotating} />
           <Island
@@ -96,9 +91,6 @@ const Home = () => {
             scale={islandScale}
           />
           <Dragon
-            isRotating={isRotating}
-            position={biDragonPosition}
-            rotation={[0, 20.1, 0]}
             scale={biDragonScale}
           />
         </Suspense>

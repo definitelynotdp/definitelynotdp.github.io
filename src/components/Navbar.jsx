@@ -4,17 +4,21 @@ import { logo } from "../assets/images";
 
 const Navbar = () => {
   return (
-      <header className='header bg-gray-900 p-4 flex justify-between items-center border-b-4 border-yellow-600 shadow-lg'>
-          <NavLink to='/'>
-              <img src={logo} alt='logo' className='w-16 h-16 object-contain' />
+      <header className="w-full h-[60px] bg-violet-300/50 px-6 p-2 flex justify-between items-center border-b-4 border-[#4B006E] shadow-lg">
+          <NavLink to="/">
+              <img src={logo} alt="logo" className="w-12 h-12 object-contain" />
           </NavLink>
 
-          <nav className='flex text-lg gap-7 font-bold text-yellow-400 tracking-wider'>
-              <NavLink to='/about' className={({ isActive }) => isActive ? "text-yellow-500 underline" : "hover:text-yellow-300"}>
-                  The Chronicle 📜
+          <nav className="flex text-lg gap-7 font-bold text-[#4B006E] tracking-wider">
+              <NavLink
+                  to="/about"
+                  className={({ isActive }) => isActive ? "text-[#E07BE0] underline" : "hover:text-[#E07BE0]"}>
+                  My Chronicle 📜
               </NavLink>
-              <NavLink to='/projects' className={({ isActive }) => isActive ? "text-yellow-500 underline" : "hover:text-yellow-300"}>
-                  Grand Deeds ⚔️
+              <NavLink
+                  to="/projects"
+                  className={({ isActive }) => isActive ? "text-[#E07BE0] underline" : "hover:text-[#E07BE0]"}>
+                  My Deeds ⚔️
               </NavLink>
           </nav>
       </header>

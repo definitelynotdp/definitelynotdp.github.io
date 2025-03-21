@@ -3,26 +3,56 @@ import { useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
 import { a } from '@react-spring/three'
 import * as THREE from 'three';
 import dragonModel from '../assets/3d/dragon.glb'
+import {useFrame} from "@react-three/fiber";
 
-export function Dragon({isRotating, ...props}) {
+export function Dragon({...props}) {
   const dragonRef = useRef();
   const { nodes, materials, animations } = useGLTF(dragonModel);
-  const { actions } = useAnimations(animations, dragonRef.current);
+  const { actions } = useAnimations(animations, dragonRef);
 
   useEffect(() => {
-    if (!actions || animations.length === 0) return;
+    if (!actions || Object.keys(actions).length === 0) return;
+    if (!dragonRef.current) return;
 
     const firstAnimKey = Object.keys(actions)[0];
-    const firstAnim = actions[firstAnimKey];
+    const anim = actions[firstAnimKey];
 
-    if (!firstAnim) return;
+    if (!anim) return;
 
-    if (!isRotating) {
-      firstAnim.reset().setLoop(THREE.LoopRepeat, Infinity).play();
-    } else {
-      firstAnim.stop();
+    anim.reset().setLoop(THREE.LoopRepeat, Infinity).play();
+  }, [actions, dragonRef.current]);
+
+  useFrame(({ clock, camera }) => {
+    if (!dragonRef.current) return;
+
+    // Smooth floating effect with slight randomness
+    dragonRef.current.position.y = Math.sin(clock.elapsedTime * 1.5) * 0.3 + 2;
+
+    // Get the current dragon position
+    const dragonX = dragonRef.current.position.x;
+    const cameraX = camera.position.x;
+
+    // Define movement speed (randomized)
+    const baseSpeed = 0.008; // Base speed (slower than before)
+    const speedVariation = Math.sin(clock.elapsedTime * 0.5) * 0.004; // Small speed variation
+    const moveSpeed = baseSpeed + speedVariation;
+
+    // Flip direction when reaching the boundaries
+    if (dragonX > cameraX + 12) {
+      dragonRef.current.rotation.y = Math.PI;
+    } else if (dragonX < cameraX - 12) {
+      dragonRef.current.rotation.y = 0;
     }
-  }, [actions, animations, isRotating]);
+
+    // Apply movement based on rotation
+    if (dragonRef.current.rotation.y === 0) {
+      dragonRef.current.position.x += moveSpeed;
+      dragonRef.current.position.z -= moveSpeed * 1.2; // Slightly diagonal movement
+    } else {
+      dragonRef.current.position.x -= moveSpeed;
+      dragonRef.current.position.z += moveSpeed * 1.2;
+    }
+  });
 
   return (
       <a.group ref={dragonRef} {...props}>
